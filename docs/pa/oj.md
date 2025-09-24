@@ -17,14 +17,14 @@
 
     ![注册GradeScope](./images/register.png)
 
-2. Course Entry Code填写 **`XXXXXX`**，School 选择 `Tsinghua University`。Name 请填写真实姓名，Student ID请填写清华校内学号。
+2. Course Entry Code填写 **`EE8GVJ`**，School 选择 `Tsinghua University`。Name 请填写真实中文姓名，Student ID请填写清华校内学号。
 
-3. 完成注册后登录，你可以看到你已经完成选课 THSS (Fall 2025) 汇编与编译原理，请开始你的实验吧。
+3. 完成注册后登录，你可以看到你已经完成选课 Assembly and Compilation Principles (Fall 2025) 汇编与编译原理，请开始你的实验吧。
 
 
 ## 在GradeScope中组建队伍（大作业相关）
 
-每次提交都需要在GradeScope中组建队伍，请按照以下步骤操作：
+大作业**每次提交**都需要在GradeScope中组建队伍，请按照以下步骤操作：
 
 1. 提交完代码后，点击页面最下方的`Group Members`按钮。
 

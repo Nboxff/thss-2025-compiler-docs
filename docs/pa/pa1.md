@@ -87,7 +87,7 @@ INT : digit+;           // 使用 fragment 定义整数
 
 现在，你已经对 ANTLR 的 g4 文件有了一个初步的认识，请你进一步阅读助教编写的[ANTLR使用指南](../labs/antlr.md)，学习ANTLR更多使用方法并实践起来吧。
 
-下面正式介绍本次实验的内容，你需要阅读下面简易C语言的词法规则，其中`IDENT`、`INTEGER_CONST`、`MULTILINE_COMMENT`需要你自行完成规则编写，完成词法分析文件g4的编写。你的文件需要命名为`SimpleCLexer.g4`, 并将`lexer grammar SimpleCLexer;`作为第一行。
+下面正式介绍本次实验的内容，你需要阅读下面简易C语言的词法规则，完成词法分析文件g4的编写，其中`IDENT`、`INTEGER_CONST`、`MULTILINE_COMMENT`需要你自行完成规则编写。你的文件需要命名为`SimpleCLexer.g4`, 并将`lexer grammar SimpleCLexer;`作为 g4 文件的第一行。
 
 词法规则如下，请注意你的g4文件中的规则名请和下面的规则保持一致，否则可能无法通过OJ的测试：
 
@@ -197,7 +197,7 @@ int main() {
 
 ```
 
-你的词法分析器应当输入下面的结果：
+你的词法分析器应当输出下面的结果：
 
 ```
 [@0,0:2='int',<'int'>,1:0]
@@ -249,5 +249,11 @@ int main() {
 
 1. **注册账号**：请每位同学按照 [OJ使用方法](/pa/oj/) 中的指南注册账号。
 2. **代码要求**：
-      - 提交ZIP文件，ZIP文件中只包含`SimpleCLexer.g4`一个文件，不要有子文件夹。
+    提交ZIP文件，ZIP文件中只包含`SimpleCLexer.g4`一个文件，不要有子文件夹。
+    
+    项目结构如下：
+    ```
+    project.zip
+    |-- SimpleCLexer.g4
+    ```
 3. **查看反馈**：提交后耐心等待自动评分结果，Online Judge 会构建 Docker 对你项目进行自动测试，你可以多次提交。注意 GradeScope 可以选择你的历史提交分数，你应当选择你的历史最高分作为成绩。
