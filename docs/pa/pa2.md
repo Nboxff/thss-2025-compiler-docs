@@ -10,7 +10,7 @@
 
 !!! tip "为什么要手写词法分析器？"
 
-	同学们可能有疑问，明明在PA1中我们已经能自动化生成词法分析器了，为什么还要手写一个呢？事实上，手写一个词法分析器并不复杂，在gcc等编译器中，开发人员仍会选择自己手写词法分析器。
+	同学们可能有疑问，明明在PA1中我们已经能自动化生成词法分析器了，为什么还要手写一个呢？事实上，手写一个词法分析器并不复杂，而且手写词法分析器可以针对特定场景优化。例如在gcc等编译器中，开发人员仍会选择自己手写词法分析器。
 
 在开始本次实验之前，请确保你已经准备好 C++17 的开发环境，相信对于大三的同学来说这并不复杂。同时，你需要安装Python3，方便你将代码打包成ZIP压缩包上传到GradeScope。
 
@@ -95,6 +95,39 @@ MINUS - at Line 8.
 git clone [Todo]
 ```
 
+在框架代码中， `main`函数是整个程序的入口，将用户输入的C程序交由词法分析器`lexer`进行解析，之后每次读取一个 token，输出token类型、token内容以及所在行号。
+
+```cpp title="main.cpp"
+int main() {
+  std::ostringstream ss;
+  ss << std::cin.rdbuf();
+  std::string input = ss.str();
+
+  DragonLexer lexer(input);
+  while (true) {
+    Token t = lexer.nextToken();
+    if (t.type == TokenType::WS) {
+      continue;
+    } else if (t.type == TokenType::EOF_T) {
+      break;
+    } else {
+      std::string typ = tokenTypeToString(t.type);
+      std::cout << typ << " " << t.text << " at Line " << t.line << "." << std::endl;
+    }
+  }
+  return 0;
+}
+```
+
+`Token.hpp`和`Token.cpp`定义了所有token的类型以及token对应的字符串，当需要添加新的token类型时，需要修改这两个文件。
+
+`KeywordTable.hpp`和`KeywordTable.cpp`这两个文件保存了词法规则中的关键字，你需要调用`KeywordTable`类中的方法来区分关键字和普通的变量名。
+
+在`Lexer.hpp`和`Lexer.cpp`中，`Lexer`类是词法分析器的基类，保存了当前处理的位置、字符、行数等信息，并提供了`nextToken() -> Token`纯虚函数，交由派生类来实现。
+
+`DragonLexer.hpp`和`DragonLexer.cpp`中实现了本次实验具体的词法分析器，负责实现每个词法单元的解析。
+
+
 ### Part2: 完善词法分析器
 
 在本任务中，你需要补全`Lexer.cpp`和`DragonLexer.cpp`两个文件。你可以修改框架代码中的其他文件，但请保证不要改变输入输出的格式。
@@ -138,4 +171,4 @@ make
     ├── Token.hpp
     └── main.cpp
 ```
-GradeScope上共有 10 个测试用例，每个10分。
+GradeScope上共有 10 个测试用例，每个10分。提交后耐心等待自动评分结果，Online Judge 会构建 Docker 对你项目进行自动测试，你可以多次提交。注意 GradeScope 可以选择你的历史提交分数，你应当选择你的历史最高分作为成绩。

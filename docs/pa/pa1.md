@@ -85,7 +85,7 @@ fragment digit : [0-9]; // fragment 规则，只能被其他规则引用
 INT : digit+;           // 使用 fragment 定义整数
 ```
 
-现在，你已经对 ANTLR 的 g4 文件有了一个初步的认识，请你进一步阅读助教编写的[ANTLR使用指南](../labs/antlr.md)，学习ANTLR更多使用方法并实践起来吧。
+现在，你已经对 ANTLR 的 g4 文件有了一个初步的认识，请你进一步阅读助教编写的[ANTLR使用指南](../labs/antlr.md)，学习ANTLR更多使用方法。
 
 下面正式介绍本次实验的内容，你需要阅读下面简易C语言的词法规则，完成词法分析文件g4的编写，其中`IDENT`、`INTEGER_CONST`、`MULTILINE_COMMENT`需要你自行完成规则编写。你的文件需要命名为`SimpleCLexer.g4`, 并将`lexer grammar SimpleCLexer;`作为 g4 文件的第一行。
 
@@ -174,6 +174,8 @@ LINE_COMMENT
 MULTILINE_COMMENT : 同标准C语言，以'/*'开头，以'*/'结尾 
    ;
 ```
+
+**注意，你的词法分析器无需输出注释相关的内容。**
 
 ### Part3: 生成词法分析器
 

@@ -16,6 +16,7 @@ nav:
       - 写在前面: pa/introduction.md
       - OJ使用说明: pa/oj.md
       - PA1 基于ANTLR4的词法分析器: pa/pa1.md
+      - PA2 手写词法分析器: pa/pa2.md
     - Labs:
       - ANTLR使用指南: labs/antlr.md
 
