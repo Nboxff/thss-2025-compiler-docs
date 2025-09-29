@@ -56,7 +56,7 @@ fragment LETTER : [a-zA-Z] ;
 TOKEN类型 TOKEN内容 at Line 行数.
 ```
 
-这一部分的内容已经在框架代码中为你写好，你无需改动。
+这一部分的内容已经在框架代码中为你写好，你无需改动。本次OJ采用标准输入输出进行测试，忽略行尾空格和结尾换行。
 
 #### 输入样例
 
@@ -160,7 +160,7 @@ make
 
 ### 提交与评分
 
-在项目根目录运行`python package.py`生成ZIP压缩包，将压缩包上传到GradeScope上。
+在项目根目录运行`python package.py`生成ZIP压缩包，将压缩包上传到 GradeScope 上。
 
 压缩包预期的结构如下：
 

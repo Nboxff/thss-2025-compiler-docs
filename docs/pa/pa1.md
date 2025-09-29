@@ -6,11 +6,11 @@
 
 ## 实验描述
 
-在《汇编与编译原理》的第一个PA (Programming Assignments) 中，你需要利用ANTLR4 **独立完成** 一个简易C语言的词法分析器。
+在《汇编与编译原理》的第一个PA (Programming Assignments) 中，你需要利用ANTLR4 **独立完成** 一个简易C语言（SysY语言）的词法分析器。
 
 ### Part1: 环境配置
 
-在前三次PA中，我们不对环境配置做过多要求，在Lab(大作业)中我们会详细讲解操作系统的选择以及环境配置。
+在前两次PA中，我们不对环境配置做过多要求，但我们推荐将使用 Ubuntu22.04 系统作为你的开发环境。在Lab(大作业)中我们会详细讲解操作系统的选择以及环境配置。
 
 我们推荐你用下面的两种方式安装`ANTLR4`:
 
@@ -87,12 +87,12 @@ INT : digit+;           // 使用 fragment 定义整数
 
 现在，你已经对 ANTLR 的 g4 文件有了一个初步的认识，请你进一步阅读助教编写的[ANTLR使用指南](../labs/antlr.md)，学习ANTLR更多使用方法。
 
-下面正式介绍本次实验的内容，你需要阅读下面简易C语言的词法规则，完成词法分析文件g4的编写，其中`IDENT`、`INTEGER_CONST`、`MULTILINE_COMMENT`需要你自行完成规则编写。你的文件需要命名为`SimpleCLexer.g4`, 并将`lexer grammar SimpleCLexer;`作为 g4 文件的第一行。
+下面正式介绍本次实验的内容，你需要阅读下面简易C语言的词法规则，完成词法分析文件g4的编写，其中`IDENT`、`INTEGER_CONST`、`MULTILINE_COMMENT`需要你自行完成规则编写。你的文件需要命名为`SysYLexer.g4`, 并将`lexer grammar SysYLexer;`作为 g4 文件的第一行。
 
 词法规则如下，请注意你的g4文件中的规则名请和下面的规则保持一致，否则可能无法通过OJ的测试：
 
 
-``` title="SimpleC语言词法规则"
+``` title="SysY语言词法规则"
 CONST -> 'const';
 
 INT -> 'int';
@@ -182,9 +182,9 @@ MULTILINE_COMMENT : 同标准C语言，以'/*'开头，以'*/'结尾
 PA1的任务其实很简单，你只需要运行下面的代码来自测自己的 g4 文件是否编写正确即可:
 
 ```shell
-antlr4 SimpleCLexer.g4
-javac SimpleCLexer.java
-java org.antlr.v4.gui.TestRig SimpleCLexer tokens -tokens
+antlr4 SysYLexer.g4
+javac SysYLexer.java
+java org.antlr.v4.gui.TestRig SysYLexer tokens -tokens
 ```
 
 当你输入下面的程序时：
@@ -238,7 +238,7 @@ int main() {
 
 ### 代码与测试
 
-本次 PA 不提供框架代码，你需要自己新建`SimpleCLexer.g4`文件完成实验并自行编写测试用例测试你词法分析器的正确性。在 Online Judge 中，助教团队准备了若干简易C语言的测试用例来测试词法分析的正确性。你无需实现上述词法规则之外的C语言词法。本次实验代码量约50行。
+本次 PA 不提供框架代码，你需要自己新建`SysYLexer.g4`文件完成实验并自行编写测试用例测试你词法分析器的正确性。在 Online Judge 中，助教团队准备了若干简易C语言的测试用例来测试词法分析的正确性。你无需实现上述词法规则之外的C语言词法。本次实验代码量约50行。
 
 ### 提交与评分
 
@@ -251,11 +251,11 @@ int main() {
 
 1. **注册账号**：请每位同学按照 [OJ使用方法](/pa/oj/) 中的指南注册账号。
 2. **代码要求**：
-    提交ZIP文件，注意ZIP文件中只包含`SimpleCLexer.g4`一个文件，不要有子文件夹。
+    提交ZIP文件，注意ZIP文件中只包含`SysYLexer.g4`一个文件，不要有子文件夹。
     
     项目结构如下：
     ```
     project.zip
-    └── SimpleCLexer.g4
+    └── SysYLexer.g4
     ```
 3. **查看反馈**：提交后耐心等待自动评分结果，Online Judge 会构建 Docker 对你项目进行自动测试，你可以多次提交。注意 GradeScope 可以选择你的历史提交分数，你应当选择你的历史最高分作为成绩。
