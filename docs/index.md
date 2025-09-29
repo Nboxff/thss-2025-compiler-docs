@@ -17,6 +17,7 @@
 | PA1      | 基于ANTLR4的词法分析器 |  2025 年 10 月 14 日 23：59        |    期末      |
 | PA2      | 手写词法分析器 |  2025 年 10 月 20 日 23：59        |    期末      |
 | PA3      | 敬请期待 |  敬请期待        |    期末      |
+| ……      | 敬请期待 |  敬请期待        |    期末      |
 
 !!! tip "按时提交作业"
     我们希望所有同学都能在Soft deadline前提交作业。在 Soft deadline 之后的提交只能拿到 **至多90%** 的分数。如果你在Soft deadline之后发现问题希望修复，你的得分是: 
@@ -28,9 +29,9 @@
 
 ## 前置知识
 
-- C语言程序设计
-- C++面向对象程序设计
-- 数据结构与算法
+- 程序设计基础
+- 面向对象程序设计基础
+- 数据结构
 
 ## 助教团队
 
@@ -40,8 +41,9 @@
 
 **Office**: 东配楼-11-421
 
-## 参考资料
+## 本实验设计参考的资料
 
-- [NJUSE 编译原理](http://docs.compilers.cpl.icu/#/2024/intro)
-- [PKU 编译原理](https://pku-minic.github.io/online-doc/#/)
-- THSS 汇编与编译原理 2024 年课程资料
+> 
+> - [NJUSE 编译原理](http://docs.compilers.cpl.icu/#/2024/intro)
+> - [PKU 编译原理](https://pku-minic.github.io/online-doc/#/)
+> - THSS 汇编与编译原理 2024 年课程资料
