@@ -39,12 +39,13 @@ GE : '>=' ;
 DOT : '.' ;
 POS : '+' ;
 NEG : '-' ;
+SQUOTE : '\'' ;
 
 REAL : DIGITS ('.' DIGITS)? ;
 SCI : DIGITS ('.' DIGITS)? ([eE] [+-]? DIGITS)? ;
 
 fragment DIGIT :  [0-9] ;
-fragment DIGITS : [0-9]+ ;
+fragment DIGITS : [0-9] ('\''? [0-9])* ;
 fragment LETTER : [a-zA-Z] ;
 ```
 
@@ -71,6 +72,8 @@ TOKEN类型 TOKEN内容 at Line 行数.
 123.45E-67
 123.45-67
 123.45E-
+123'123'
+123.4'56
 ```
 
 #### 输出样例
@@ -93,6 +96,9 @@ INT 67 at Line 7.
 REAL 123.45 at Line 8.
 IDENT E at Line 8.
 MINUS - at Line 8.
+INT 123'123 at Line 9.
+SQUOTE ' at Line 9.
+REAL 123.4'56 at Line 10.
 ```
 
 ### Part1: 框架代码导读
@@ -139,9 +145,11 @@ int main() {
 
 ### Part2: 完善词法分析器
 
-在本任务中，你需要补全`Lexer.cpp`和`DragonLexer.cpp`两个文件。你可以修改框架代码中的其他文件，但请保证不要改变输入输出的格式。
+在本任务中，你首先需要在`Token.hpp`和`Token.cpp`中添加一个框架代码中为实现的 token 类型：`SQUOTE`(单引号)。
 
-我们在你需要完成代码编写的地方增加了`TODO`注释，如果你使用 VSCode 进行编程，你可以安装 **TODO Highlight** 这个插件。本次实验代码量约100行。
+接着，你需要补全`Lexer.cpp`和`DragonLexer.cpp`两个文件。你可以修改框架代码中的其他文件，但请保证不要改变输入输出的格式。
+
+我们在你需要完成代码编写的地方增加了`TODO`注释，如果你使用 VSCode 进行编程，你可以安装 **TODO Highlight** 这个插件。本次实验代码量约 120 行。
 
 ### 运行与测试
 
@@ -156,7 +164,7 @@ make
 
 此时，可以看到`build/`目录下生成了可执行文件`dragon_lexer`或`dragon_lexer.exe`(Windows)，执行`./dragon_lexer`运行词法分析器。
 
-当然，你可以配置你的Clion/VSCode等现代编程工具，利用GUI图形界面完成构建与运行。
+当然，你可以配置你的 Clion / VSCode 等现代编程工具，利用 GUI 图形界面完成构建与运行。
 
 对于PA2，我们只提供上面的样例，不提供具体的测试数据，你需要自行编写测试用例进行测试。
 
@@ -180,4 +188,4 @@ project.zip
     ├── Token.hpp
     └── main.cpp
 ```
-GradeScope上共有 10 个测试用例，每个10分。提交后耐心等待自动评分结果，Online Judge 会构建 Docker 对你项目进行自动测试，你可以多次提交。注意 GradeScope 可以选择你的历史提交分数，你应当选择你的历史最高分作为成绩。
+GradeScope上共有 12 个测试用例。提交后耐心等待自动评分结果，Online Judge 会构建 Docker 对你项目进行自动测试，你可以多次提交。注意 GradeScope 可以选择你的历史提交分数，你应当选择你的历史最高分作为成绩。
